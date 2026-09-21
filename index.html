@@ -58,24 +58,24 @@
   <h1>Home Assistant Nest Link</h1>
   <p class="lede">
     A private, single-user integration that lets one self-hosted Home Assistant
-    installation read and control one household&rsquo;s own Nest thermostat.
+    installation work with one household&rsquo;s own Nest devices.
   </p>
 
   <div class="card">
     <p>
       <strong>This application has exactly one user: its author.</strong> It is not
       distributed, not published to any app store, not offered as a service, and
-      accepts no sign-ups. It exists solely so that a thermostat in a private
-      residence can be managed from the home-automation software that already runs
+      accepts no sign-ups. It exists solely so that Nest devices in a private
+      residence can be used from the home-automation software that already runs
       that residence.
     </p>
   </div>
 
   <h2>What it does</h2>
   <p>
-    Nest thermostats provide no local API. Unlike the lighting, media and printing
+    Nest devices provide no local API. Unlike the lighting, media and printing
     devices in this household &mdash; all of which are controlled locally over the home
-    network with no external account &mdash; the thermostat can only be reached through
+    network with no external account &mdash; they can only be reached through
     Google&rsquo;s <em>Smart Device Management</em> (SDM) API.
   </p>
   <p>
@@ -86,7 +86,9 @@
   <ul>
     <li>read the thermostat&rsquo;s current temperature, humidity, mode and setpoint;</li>
     <li>change the setpoint and operating mode;</li>
-    <li>receive push updates when the thermostat&rsquo;s state changes, via Cloud Pub/Sub.</li>
+    <li>view the livestream from a Nest smart display in the garage, and receive its motion,
+        sound and person-detection events;</li>
+    <li>receive push updates when any of this changes, via Cloud Pub/Sub.</li>
   </ul>
 
   <h2>Where the data goes</h2>
