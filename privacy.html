@@ -84,7 +84,10 @@
   <table>
     <tr><th>Thermostat state</th><td>Current temperature, humidity, HVAC mode, operating status and target setpoint</td></tr>
     <tr><th>Device metadata</th><td>Device name, type, and the structure or room it is assigned to</td></tr>
-    <tr><th>Change events</th><td>Notifications delivered via Google Cloud Pub/Sub when the above values change</td></tr>
+    <tr><th>Camera livestream</th><td>The live video stream from a Nest smart display located in the operator&rsquo;s garage, viewed on demand</td></tr>
+    <tr><th>Camera events</th><td>Motion, sound and person-detection notifications from that same device</td></tr>
+    <tr><th>Camera snapshots</th><td>Still images associated with the events above</td></tr>
+    <tr><th>Change events</th><td>Notifications delivered via Google Cloud Pub/Sub when any of the above changes</td></tr>
   </table>
   </div>
   <p>
@@ -92,9 +95,22 @@
     not calendar, not mail, not location history, not files, not profile information
     beyond what is strictly required to complete the OAuth sign-in.
   </p>
+  <h2>Video and images</h2>
   <p>
-    ⚠ This application does <strong>not</strong> access cameras, doorbells, microphones
-    or any video or audio stream, and does not request the scopes that would permit it.
+    This application accesses the camera built into a Nest smart display in the operator&rsquo;s
+    <strong>garage</strong>, so that the video, motion and person-detection events already
+    produced by that device can be viewed and acted on within the operator&rsquo;s own
+    home-automation system rather than only in a vendor&rsquo;s mobile app.
+  </p>
+  <p>
+    That video is streamed on demand to software running on the operator&rsquo;s own hardware,
+    on a private home network. <strong>It is not recorded to, relayed through, or stored on any
+    external service by this application</strong>, and it is not accessible to anyone other than
+    the operator.
+  </p>
+  <p>
+    No other camera, doorbell or microphone in the residence is connected to this application.
+    Access to any device can be withdrawn individually at any time, as described below.
   </p>
 
   <h2>Where that data goes</h2>
@@ -104,9 +120,10 @@
     server, no cloud service, and no hosted component operated by this application.
   </p>
   <p>
-    Thermostat readings are stored in that instance&rsquo;s local database so that history
-    and automations work, exactly as with every other device in the home. That database
-    is on the operator&rsquo;s own hardware and is not replicated to any external party.
+    Thermostat readings, and any camera event or snapshot the operator chooses to keep, are
+    stored in that instance&rsquo;s local database so that history and automations work, exactly
+    as with every other device in the home. That database is on the operator&rsquo;s own
+    hardware and is not replicated to any external party.
   </p>
 
   <h2>What is never done with it</h2>
@@ -123,9 +140,9 @@
 
   <h2>Retention and deletion</h2>
   <p>
-    Thermostat history is retained locally under Home Assistant&rsquo;s own retention
-    settings and can be purged by the operator at any time. Because no copy exists
-    anywhere else, deleting it locally deletes it completely.
+    Device history &mdash; readings, events and any retained snapshots &mdash; is kept locally
+    under Home Assistant&rsquo;s own retention settings and can be purged by the operator at any
+    time. Because no copy exists anywhere else, deleting it locally deletes it completely.
   </p>
 
   <h2>Revoking access</h2>
