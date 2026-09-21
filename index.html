@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Home Assistant Nest Link</title>
+<style>
+  :root{
+    --bg:#fbfaf8; --fg:#23211e; --muted:#6b6660; --rule:#e4e0da;
+    --accent:#9a5b3d; --card:#fff;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#171614; --fg:#eceae6; --muted:#9d968d; --rule:#2e2b27;
+      --accent:#d79b76; --card:#1f1d1a;
+      color-scheme: dark;
+    }
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--fg);
+    font:16px/1.65 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    padding:0 16px;
+  }
+  .wrap{max-width:44rem; margin:0 auto; padding-block:4rem 5rem}
+  .eyebrow{
+    font-size:.72rem; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--muted); margin:0 0 .75rem;
+  }
+  h1{font-size:clamp(1.7rem,5vw,2.4rem); line-height:1.15; margin:0 0 1rem; letter-spacing:-.02em}
+  .lede{font-size:1.1rem; color:var(--muted); margin:0 0 2.5rem}
+  h2{font-size:1.1rem; margin:2.5rem 0 .75rem; letter-spacing:-.01em}
+  p{margin:0 0 1rem}
+  ul{margin:0 0 1rem; padding-left:1.15rem}
+  li{margin:.3rem 0}
+  a{color:var(--accent)}
+  .card{
+    background:var(--card); border:1px solid var(--rule); border-radius:10px;
+    padding:1.25rem 1.4rem; margin:0 0 1.5rem;
+  }
+  .card p:last-child{margin-bottom:0}
+  footer{
+    margin-top:3.5rem; padding-top:1.5rem; border-top:1px solid var(--rule);
+    font-size:.9rem; color:var(--muted);
+  }
+  footer a{margin-right:1.25rem; display:inline-block}
+  code{
+    font:0.9em ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    background:var(--rule); padding:.1em .35em; border-radius:4px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="eyebrow">Personal project &middot; not a commercial product</p>
+  <h1>Home Assistant Nest Link</h1>
+  <p class="lede">
+    A private, single-user integration that lets one self-hosted Home Assistant
+    installation read and control one household&rsquo;s own Nest thermostat.
+  </p>
+
+  <div class="card">
+    <p>
+      <strong>This application has exactly one user: its author.</strong> It is not
+      distributed, not published to any app store, not offered as a service, and
+      accepts no sign-ups. It exists solely so that a thermostat in a private
+      residence can be managed from the home-automation software that already runs
+      that residence.
+    </p>
+  </div>
+
+  <h2>What it does</h2>
+  <p>
+    Nest thermostats provide no local API. Unlike the lighting, media and printing
+    devices in this household &mdash; all of which are controlled locally over the home
+    network with no external account &mdash; the thermostat can only be reached through
+    Google&rsquo;s <em>Smart Device Management</em> (SDM) API.
+  </p>
+  <p>
+    This application is the OAuth client that makes that connection. Once authorised,
+    it allows the owner&rsquo;s self-hosted <a href="https://www.home-assistant.io/"
+    rel="noopener">Home Assistant</a> instance to:
+  </p>
+  <ul>
+    <li>read the thermostat&rsquo;s current temperature, humidity, mode and setpoint;</li>
+    <li>change the setpoint and operating mode;</li>
+    <li>receive push updates when the thermostat&rsquo;s state changes, via Cloud Pub/Sub.</li>
+  </ul>
+
+  <h2>Where the data goes</h2>
+  <p>
+    To a server on a private home network, owned and operated by the author, and
+    nowhere else. There is no hosted backend, no analytics, no third-party processor
+    and no other recipient of any kind. The full detail is in the
+    <a href="privacy.html">privacy policy</a>.
+  </p>
+
+  <h2>Scope of access</h2>
+  <p>
+    Access is limited to devices in the author&rsquo;s own Google account, granted by that
+    account, and revocable at any time from
+    <a href="https://myaccount.google.com/permissions" rel="noopener">Google Account
+    permissions</a>. Revoking access immediately and permanently ends this
+    application&rsquo;s ability to reach any device.
+  </p>
+
+  <h2>Contact</h2>
+  <p>
+    <a href="mailto:DanielGMusto@gmail.com">DanielGMusto@gmail.com</a>
+  </p>
+
+  <footer>
+    <a href="privacy.html">Privacy policy</a>
+    <a href="terms.html">Terms of service</a>
+    <span>Not affiliated with Google LLC or Nest Labs.</span>
+  </footer>
+
+</div>
+</body>
+</html>
